@@ -36,4 +36,5 @@ fn main() -> i32 {
 }
 
 
+pub fn yield_() -> isize { sys_yield() }
 
