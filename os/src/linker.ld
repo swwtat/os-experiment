@@ -7,12 +7,16 @@ SECTIONS
     . = BASE_ADDRESS;
     skernel = .;
 
-    stext = .;
+ stext = .;
     .text : {
         *(.text.entry)
+        . = ALIGN(4K);
+        strampoline = .;
+        *(.text.trampoline);
+        . = ALIGN(4K);
         *(.text .text.*)
     }
-
+    
     . = ALIGN(4K);
     etext = .;
     srodata = .;
